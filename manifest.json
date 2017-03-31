@@ -1,0 +1,7 @@
+{
+  // Required files of Chrome Extension Manifest
+  "manifest_version": 2,
+  "name": "WebBrowserNotes",
+  "version": "0.1"
+  
+}
