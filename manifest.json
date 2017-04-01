@@ -13,6 +13,10 @@
    "background" : {
    	"scripts" : ["js/event.js"],
    	"persistence" : false
-   }
+   },
+
+   "permissions" : [
+   	"contextMenus"
+   ]
   
 }
