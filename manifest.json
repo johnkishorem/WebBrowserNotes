@@ -1,7 +1,18 @@
 {
-  // Required files of Chrome Extension Manifest
+  // Required fields of Chrome Extension Manifest
   "manifest_version": 2,
   "name": "WebBrowserNotes",
-  "version": "0.1"
+  "version": "0.1",
+
+  //Fields for Google Chrome browser toolbar icon 
+   "browser_action": {
+   	"default_title" : "Page notes"
+   },
+
+   //Fields for Event Page
+   "background" : {
+   	"scripts" : ["js/event.js"],
+   	"persistence" : false
+   }
   
 }
