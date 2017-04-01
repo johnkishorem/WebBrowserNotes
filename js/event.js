@@ -21,15 +21,18 @@ function notesContextMenuCallback(notesContextMenuInfo, notesContextMenuTab) {
 //Callbck function called when Active Tab is changed
 function notesActivatedTabCallback(notesActiveTabInfo) {
 	notesActiveTab.notesActiveTabId = notesActiveTabInfo.tabId;
-	chrome.tabs.get(notesActiveTab.notesActiveTabId, function(notesTabInfo) {
-		notesActiveTab.notesActiveTabUrl = notesTabInfo.url;
-	});
-	chrome.browserAction.setBadgeText({"text" : notesActiveTab.notesActiveTabMsgCount});
+	chrome.tabs.get(notesActiveTab.notesActiveTabId, 
+		function(notesTabInfo) {
+			notesActiveTab.notesActiveTabUrl = notesTabInfo.url;
+		}
+	);
+	chrome.browserAction.setBadgeText({"text" : notesActiveTab.notesActiveTabId.toString()});
 }
 
 //Callback function called when a tab is updated
 function notesUpdatedTabCallback(notesTabId, notesTabChangeInfo, notesTabInfo) {
-	if( (notesTabId == notesActiveTab.notesActiveTabId) && (typeof notesTabChangeInfo.url != "undefined") ) {
+	if( (notesTabId == notesActiveTab.notesActiveTabId) 
+		&& (typeof notesTabChangeInfo.url != "undefined") ) {
 		notesActiveTab.notesActiveTabUrl = notesTabChangeInfo.url;
 	}
 }
