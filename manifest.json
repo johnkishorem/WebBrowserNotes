@@ -4,9 +4,10 @@
   "name": "WebBrowserNotes",
   "version": "0.1",
 
-  //Fields for Google Chrome browser toolbar icon 
+  //Fields for toolbar icon 
    "browser_action": {
-   	"default_title" : "Page notes"
+   	"default_title" : "Page notes",
+   	"default_popup" : "popup.html"
    },
 
    //Fields for Event Page
