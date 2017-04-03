@@ -8,8 +8,28 @@
   <meta name="author" content="John Kishore M">
   <style>
   	body {
-  		background-color: #FFC107;
-  		color: black;
+  		padding: 0px;
+  		margin: 0px;
+  	}
+  	.msgbox {
+  		background-color: #2196F3;
+  		color: white;
+  		font-weight: bold;
+  		width: 300px;
+  		padding: 20px;
+  		margin-right: 2px;
+  		margin-left: 2px;
+  		margin-top: 1px;
+  		margin-bottom: 1px;
+  	}
+  	.deletebtn {
+  		color: white;
+  		float: right;
+  		cursor: pointer;
+  		transition: 0.5s;
+  	}
+  	.deletebtn:hover {
+  		color:black;
   	}
   </style>
   <script type="text/javascript" src="js/jquery-3-2-0-min.js"></script>
@@ -17,6 +37,8 @@
 </head>
 
 <body>
-  <p>No notes for this page</p>
+  <div class="msgbox">
+  	<span class="deletebtn">&times;</span> 
+  	No notes to display</div>
 </body>
 </html>
