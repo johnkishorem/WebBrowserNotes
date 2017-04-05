@@ -10,12 +10,13 @@ var notesMessageListShare = ["No notes to display"];
 
 function notesUpdateMessageList(messageStored) {
 	var tmpMessageListArray = messageStored.split('\n');
+	var tmpMessageShareLen  = notesMessageListShare.length;
 
 	//Remove the last array element as it is empty after the split
 	tmpMessageListArray.pop();
 
 	//Remove all the elements from the list
-	for(var i = 0; i < notesMessageListShare.length; i++) {
+	for(var i = 0; i < tmpMessageShareLen; i++) {
 		notesMessageListShare.pop();
 	}
 	
@@ -43,7 +44,7 @@ chrome.contextMenus.create(notesContextMenuProperties);
 
 //Calback function when the user clicks the ContextMenu of the extension
 function notesContextMenuCallback(notesContextMenuInfo, notesContextMenuTab) {
-	notesUpdateMessageList(notesDevArray[0]);
+	notesUpdateMessageList("No notes to display\n");
 }
 //End of Context menu handling
 
@@ -57,6 +58,7 @@ function notesActivatedTabCallback(notesActiveTabInfo) {
 		}
 	);
 	chrome.browserAction.setBadgeText({"text" : notesActiveTab.notesActiveTabId.toString()});
+	notesUpdateMessageList(notesDevArray[notesActiveTab.notesActiveTabId % 4]);
 }
 
 //Callback function called when a tab is updated
