@@ -16,6 +16,6 @@ $(function(){
 
     //Add click listeners for delete button
 	$(".deletebtn").click(function() {
-		alert("Clicked");
+		console.log($(this).parent().data("notesListIndex"));
 	});
 });
