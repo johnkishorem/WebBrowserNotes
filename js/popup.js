@@ -10,7 +10,9 @@ $(function(){
 	var notesMessageList = chrome.extension.getBackgroundPage().notesDevArray;
 	//Add notes to the popup window
 	for(var i =0; i < notesMessageList.length; i++) {
+		//Add message to the notesMessage DOM div
 		$("#notesMessages").append(notesCreateMsgBoxDom(notesMessageList[i]));
+		//Add the position of message as data to the DOM element
 		$("#notesMessages > .msgbox:last").data("notesListIndex",i.toString());
 	}	
 
