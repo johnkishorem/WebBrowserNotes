@@ -1,7 +1,3 @@
-//Array of messages for dev purpose
-var notesDevArray = ["No notes to display", "No notes to display"];
-
-
 //Function to create an DOM with the provided message string
 //<div class='msgbox'><span class='deletebtn'>&times;</span>msgString</div>
 function notesCreateMsgBoxDom(msgString) {
@@ -10,13 +6,15 @@ function notesCreateMsgBoxDom(msgString) {
 
 $(function(){
 
+	//Get elements from background script
+	var notesMessageList = chrome.extension.getBackgroundPage().notesDevArray;
 	//Add notes to the popup window
-	for(var i =0; i < notesDevArray.length; i++) {
-		$('#notesMessages').append(notesCreateMsgBoxDom(notesDevArray[i]))
+	for(var i =0; i < notesMessageList.length; i++) {
+		$('#notesMessages').append(notesCreateMsgBoxDom(notesMessageList[i]));
 	}	
 
     //Add click listeners for delete button
 	$(".deletebtn").click(function() {
 		alert("Clicked");
-	});	
+	});
 });

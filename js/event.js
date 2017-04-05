@@ -4,6 +4,11 @@ var notesActiveTab = {"notesActiveTabId" : chrome.tabs.TAB_ID_NONE,
 						"notesActiveTabUrl" : ""
 					};
 
+//Variables to be shared with event script
+//Array just for development purpose
+var notesDevArray = ["No notes to display 1", "No notes to display 2"];
+//End of variables to be shared
+
 //Context menu handling
 //createProperties for Context menu
 var notesContextMenuProperties = { id : "notesContextMenu", title : "Add/Edit notes"};
