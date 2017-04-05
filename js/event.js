@@ -4,10 +4,35 @@ var notesActiveTab = {"notesActiveTabId" : chrome.tabs.TAB_ID_NONE,
 						"notesActiveTabUrl" : ""
 					};
 
+//Share variables handling
 //Variables to be shared with event script
-//Array just for development purpose
-var notesMessageListShare = ["No notes to display 1", "No notes to display 2"];
-//End of variables to be shared
+var notesMessageListShare = ["No notes to display"];
+
+function notesUpdateMessageList(messageStored) {
+	var tmpMessageListArray = messageStored.split('\n');
+
+	//Remove the last array element as it is empty after the split
+	tmpMessageListArray.pop();
+
+	//Remove all the elements from the list
+	for(var i = 0; i < notesMessageListShare.length; i++) {
+		notesMessageListShare.pop();
+	}
+	
+	//Add new elements to the list
+	for(var i = 0; i < tmpMessageListArray.length; i++) {
+		notesMessageListShare.push(tmpMessageListArray[i]);
+	}
+}
+
+//End of share variables handling
+
+//Dev array to use untill storage is implemented
+var notesDevArray = [
+                     "List item 1 of 1\nList item 2 of 1\nList item 3 of 1\n",
+                     "List item 1 of 2\nList item 2 of 2\nList item 3 of 2\n",
+                     "List item 1 of 3\nList item 2 of 3\nList item 3 of 3\n",
+                    ];
 
 //Context menu handling
 //createProperties for Context menu
@@ -18,7 +43,7 @@ chrome.contextMenus.create(notesContextMenuProperties);
 
 //Calback function when the user clicks the ContextMenu of the extension
 function notesContextMenuCallback(notesContextMenuInfo, notesContextMenuTab) {
-	alert("hello");
+	notesUpdateMessageList(notesDevArray[0]);
 }
 //End of Context menu handling
 
