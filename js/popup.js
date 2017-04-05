@@ -10,7 +10,8 @@ $(function(){
 	var notesMessageList = chrome.extension.getBackgroundPage().notesDevArray;
 	//Add notes to the popup window
 	for(var i =0; i < notesMessageList.length; i++) {
-		$('#notesMessages').append(notesCreateMsgBoxDom(notesMessageList[i]));
+		$("#notesMessages").append(notesCreateMsgBoxDom(notesMessageList[i]));
+		$("#notesMessages > .msgbox:last").data("notesListIndex",i.toString());
 	}	
 
     //Add click listeners for delete button
