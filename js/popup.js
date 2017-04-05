@@ -7,7 +7,7 @@ function notesCreateMsgBoxDom(msgString) {
 $(function(){
 
 	//Get elements from background script
-	var notesMessageList = chrome.extension.getBackgroundPage().notesDevArray;
+	var notesMessageList = chrome.extension.getBackgroundPage().notesMessageListShare;
 	//Add notes to the popup window
 	for(var i =0; i < notesMessageList.length; i++) {
 		//Add message to the notesMessage DOM div

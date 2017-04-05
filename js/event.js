@@ -6,7 +6,7 @@ var notesActiveTab = {"notesActiveTabId" : chrome.tabs.TAB_ID_NONE,
 
 //Variables to be shared with event script
 //Array just for development purpose
-var notesDevArray = ["No notes to display 1", "No notes to display 2"];
+var notesMessageListShare = ["No notes to display 1", "No notes to display 2"];
 //End of variables to be shared
 
 //Context menu handling
