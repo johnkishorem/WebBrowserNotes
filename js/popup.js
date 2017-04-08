@@ -8,8 +8,9 @@ $(function(){
 
 	//Get elements from background script
 	var notesMessageList = chrome.extension.getBackgroundPage().notesMessageListShare;
+	var i = 0;
 	//Add notes to the popup window
-	for(var i =0; i < notesMessageList.length; i++) {
+	for(i =0; i < notesMessageList.length; i++) {
 		//Add message to the notesMessage DOM div
 		$("#notesMessages").append(notesCreateMsgBoxDom(notesMessageList[i]));
 		//Add the position of message as data to the DOM element
@@ -18,13 +19,23 @@ $(function(){
 
     //Add click listeners for delete button
 	$(".deletebtn").click(function() {
-		console.log($(this).parent().data("notesListIndex"));
+		i = $(this).parent().data("notesListIndex");
+
+		//Delete the data from the list
+		notesMessageList.splice(i, 1);
+		console.log(notesMessageList);
+
+		//Delete the notes from the DOM
+		$(this).parent().remove();
+		
 	});
 
+	//Add submit listener for add message
 	$("form").submit(function(){
 		var notesUserMessage = $("input:first").val();
 		if(notesUserMessage != "") {
-			console.log(notesUserMessage);
+			notesMessageList.push(notesUserMessage);
+			location.reload();
 		}
 		return false;
 	});
