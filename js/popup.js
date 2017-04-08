@@ -19,11 +19,14 @@ $(function(){
 
     //Add click listeners for delete button
 	$(".deletebtn").click(function() {
+		//Read data from DOM to identify index
 		i = $(this).parent().data("notesListIndex");
 
-		//Delete the data from the list
+		//Delete the notes from the list
 		notesMessageList.splice(i, 1);
-		console.log(notesMessageList);
+
+		//Update the badge text
+		chrome.browserAction.setBadgeText({"text" : notesMessageList.length.toString()});		
 
 		//Delete the notes from the DOM
 		$(this).parent().remove();
@@ -34,7 +37,14 @@ $(function(){
 	$("form").submit(function(){
 		var notesUserMessage = $("input:first").val();
 		if(notesUserMessage != "") {
+
+			// Push new notes into the array
 			notesMessageList.push(notesUserMessage);
+
+			//Update the badge text
+			chrome.browserAction.setBadgeText({"text" : notesMessageList.length.toString()});
+
+			//Reload to the page to set all elements set again
 			location.reload();
 		}
 		return false;
