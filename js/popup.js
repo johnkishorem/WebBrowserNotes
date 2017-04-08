@@ -25,6 +25,9 @@ $(function(){
 		});
 	}
 
+	//Update the badge text
+	chrome.browserAction.setBadgeText({"text" : notesMessageList.length.toString()});
+
 	var i = 0;
 	//Add notes to the popup window
 	for(i =0; i < notesMessageList.length; i++) {
@@ -67,9 +70,6 @@ $(function(){
 			var tmpMessageForStorage = notesMessageList.join('\n');
 			console.log(tmpMessageForStorage);
 			chrome.storage.local.set({'notesChromeExtensionStorage': tmpMessageForStorage});			
-
-			//Update the badge text
-			chrome.browserAction.setBadgeText({"text" : notesMessageList.length.toString()});
 
 			//Reload to the page to set all elements set again
 			location.reload();	
