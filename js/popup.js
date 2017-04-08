@@ -22,7 +22,10 @@ $(function(){
 	});
 
 	$("form").submit(function(){
-		console.log("Form submitted");
+		var notesUserMessage = $("input:first").val();
+		if(notesUserMessage != "") {
+			console.log(notesUserMessage);
+		}
 		return false;
 	});
 });
