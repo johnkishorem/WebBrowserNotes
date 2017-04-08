@@ -9,6 +9,9 @@ var notesActiveTab = {"notesActiveTabId" : chrome.tabs.TAB_ID_NONE,
 var notesMessageListShare = [];
 
 function notesUpdateMessageList(messageStored) {
+	if(messageStored == undefined) {
+		messageStored = "";
+	}
 	var tmpMessageListArray = messageStored.split('\n');
 	var tmpMessageShareLen  = notesMessageListShare.length;
 
