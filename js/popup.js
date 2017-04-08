@@ -20,4 +20,9 @@ $(function(){
 	$(".deletebtn").click(function() {
 		console.log($(this).parent().data("notesListIndex"));
 	});
+
+	$("form").submit(function(){
+		console.log("Form submitted");
+		return false;
+	});
 });

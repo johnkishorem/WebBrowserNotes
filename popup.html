@@ -11,7 +11,16 @@
   		padding: 0px;
   		margin: 0px;
   	}
-  	.msgbox,input {
+  	.deletebtn {
+  		color: white;
+  		float: right;
+  		cursor: pointer;
+  		transition: 0.5s;
+  	}
+  	.deletebtn:hover {
+  		color:black;
+  	}
+  	.msgbox,form {
   		color: white;
   		font-weight: bold;
   		width: 300px;
@@ -27,21 +36,24 @@
   	.msgbox:nth-child(even) {
 		background-color: #8bc34a;
   	}
-  	input {
+  	form {
   		background-color: orange;
-  	}  	
-  	.deletebtn {
-  		color: white;
-  		float: right;
-  		cursor: pointer;
-  		transition: 0.5s;
-  	}
-  	.deletebtn:hover {
-  		color:black;
   	}
   	input {
-  		width: 300px;
-
+  		background-color: inherit;
+  		margin: 0px;
+  		padding: 0px;
+  		width: inherit;
+  		border: none;
+  		outline: none;
+  	}  	
+  	#hidden-submit {
+  		border: 0 none;
+  		height: 0;
+  		width: 0;
+  		padding: 0;
+  		margin: 0;
+  		overflow: hidden;
   	}
   </style>
   <script src="js/jquery-3-2-0-min.js"></script>
@@ -51,6 +63,9 @@
 <body>
   <div id="notesMessages">
   </div>
-  <input type="text" placeholder="Enter yours notes for this webpage" />
+  <form action="">
+  	<input type="text" placeholder="Type and hit enter to add your notes" />
+  	<input type="submit" tabindex="-1" id="hidden-submit">
+  </form>
 </body>
 </html>
