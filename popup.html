@@ -11,8 +11,7 @@
   		padding: 0px;
   		margin: 0px;
   	}
-  	.msgbox {
-  		background-color: #2196F3;
+  	.msgbox,input {
   		color: white;
   		font-weight: bold;
   		width: 300px;
@@ -22,6 +21,15 @@
   		margin-top: 1px;
   		margin-bottom: 1px;
   	}
+  	.msgbox:nth-child(odd) {
+		background-color: #2196F3;
+  	}
+  	.msgbox:nth-child(even) {
+		background-color: #8bc34a;
+  	}
+  	input {
+  		background-color: orange;
+  	}  	
   	.deletebtn {
   		color: white;
   		float: right;
@@ -31,6 +39,10 @@
   	.deletebtn:hover {
   		color:black;
   	}
+  	input {
+  		width: 300px;
+
+  	}
   </style>
   <script src="js/jquery-3-2-0-min.js"></script>
   <script src="js/popup.js"></script>
@@ -39,5 +51,6 @@
 <body>
   <div id="notesMessages">
   </div>
+  <input type="text" placeholder="Enter yours notes for this webpage" />
 </body>
 </html>
