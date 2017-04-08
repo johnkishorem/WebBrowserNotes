@@ -1,7 +1,8 @@
 //Global Information storage
 var notesActiveTab = {"notesActiveTabId" : chrome.tabs.TAB_ID_NONE, 
 						"notesActiveTabMsgCount" : "0",
-						"notesActiveTabUrl" : ""
+						"notesActiveTabUrl" : "",
+						"notesActiveTabUrlLast" : ""
 					};
 
 //Share variables handling
@@ -77,8 +78,12 @@ function notesUpdatedTabCallback(notesTabId, notesTabChangeInfo, notesTabInfo) {
 }
 
 function notesUpdateTabInfo(){
+	//Read storage for old url
+
+	//Fetch storage for new url
+
 	//Update global share with messages
-	notesUpdateMessageList(notesDevArray[notesActiveTab.notesActiveTabId % 4]);
+	notesUpdateMessageList("");
 
 	//Update badge text - This has to be done only after the notesUpdateMessageList() function
 	chrome.browserAction.setBadgeText({"text" : notesActiveTab.notesActiveTabMsgCount.toString()});
