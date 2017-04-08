@@ -24,6 +24,9 @@ function notesUpdateMessageList(messageStored) {
 	for(var i = 0; i < tmpMessageListArray.length; i++) {
 		notesMessageListShare.push(tmpMessageListArray[i]);
 	}
+
+    //Update the badge text based on number of messages in the list
+	chrome.browserAction.setBadgeText({"text" : tmpMessageListArray.length.toString()});
 }
 
 //End of share variables handling
@@ -58,7 +61,6 @@ function notesActivatedTabCallback(notesActiveTabInfo) {
 			notesActiveTab.notesActiveTabUrl = notesTabInfo.url;
 		}
 	);
-	chrome.browserAction.setBadgeText({"text" : notesActiveTab.notesActiveTabId.toString()});
 	notesUpdateMessageList(notesDevArray[notesActiveTab.notesActiveTabId % 4]);
 }
 
