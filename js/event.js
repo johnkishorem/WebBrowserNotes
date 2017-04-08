@@ -30,8 +30,8 @@ function notesUpdateMessageList(messageStored) {
 
 //Dev array to use untill storage is implemented
 var notesDevArray = [
-                     "List item 1 of 1\nList item 2 of 1\nList item 3 of 1\n",
-                     "List item 1 of 2\nList item 2 of 2\nList item 3 of 2\n",
+                     "List item 1 of 1\n",
+                     "List item 1 of 2\nList item 2 of 2\n",
                      "List item 1 of 3\nList item 2 of 3\nList item 3 of 3\n",
                     ];
 

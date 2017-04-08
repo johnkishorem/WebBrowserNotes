@@ -20,7 +20,7 @@
   	.deletebtn:hover {
   		color:black;
   	}
-  	.msgbox,form {
+  	.msgbox {
   		color: white;
   		font-weight: bold;
   		width: 300px;
@@ -30,15 +30,15 @@
   		margin-top: 1px;
   		margin-bottom: 1px;
   	}
-  	.msgbox:nth-child(odd) {
+  	.msgbox:nth-child(3n+1) {
 		background-color: #2196F3;
   	}
-  	.msgbox:nth-child(even) {
+  	.msgbox:nth-child(3n+2) {
 		background-color: #8bc34a;
   	}
-  	form {
-  		background-color: orange;
-  	}
+	.msgbox:nth-child(3n+3) {
+		background-color: orange;
+  	}  	
   	input {
   		background-color: inherit;
   		margin: 0px;
@@ -62,10 +62,10 @@
 
 <body>
   <div id="notesMessages">
-  </div>
-  <form action="">
+  <form action="" class="msgbox">
   	<input type="text" placeholder="Type and hit enter to add your notes" />
   	<input type="submit" tabindex="-1" id="hidden-submit">
   </form>
+  </div>
 </body>
 </html>
