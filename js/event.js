@@ -25,8 +25,8 @@ function notesUpdateMessageList(messageStored) {
 		notesMessageListShare.push(tmpMessageListArray[i]);
 	}
 
-    //Update the badge text based on number of messages in the list
-	chrome.browserAction.setBadgeText({"text" : tmpMessageListArray.length.toString()});
+    //Update the global information storage with the message count
+    notesActiveTab.notesActiveTabMsgCount = tmpMessageListArray.length;
 }
 
 //End of share variables handling
@@ -61,7 +61,7 @@ function notesActivatedTabCallback(notesActiveTabInfo) {
 			notesActiveTab.notesActiveTabUrl = notesTabInfo.url;
 		}
 	);
-	notesUpdateMessageList(notesDevArray[notesActiveTab.notesActiveTabId % 4]);
+	notesUpdateTabInfo();
 }
 
 //Callback function called when a tab is updated
@@ -70,7 +70,17 @@ function notesUpdatedTabCallback(notesTabId, notesTabChangeInfo, notesTabInfo) {
 		&& (typeof notesTabChangeInfo.url != "undefined") ) {
 		notesActiveTab.notesActiveTabUrl = notesTabChangeInfo.url;
 	}
+	notesUpdateTabInfo();
 }
+
+function notesUpdateTabInfo(){
+	//Update global share with messages
+	notesUpdateMessageList(notesDevArray[notesActiveTab.notesActiveTabId % 4]);
+
+	//Update badge text - This has to be done only after the notesUpdateMessageList() function
+	chrome.browserAction.setBadgeText({"text" : notesActiveTab.notesActiveTabMsgCount.toString()});
+}
+
 //End of Tab handling
 
 
