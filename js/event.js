@@ -6,7 +6,7 @@ var notesActiveTab = {"notesActiveTabId" : chrome.tabs.TAB_ID_NONE,
 
 //Share variables handling
 //Variables to be shared with event script
-var notesMessageListShare = ["No notes to display"];
+var notesMessageListShare = [];
 
 function notesUpdateMessageList(messageStored) {
 	var tmpMessageListArray = messageStored.split('\n');
@@ -44,7 +44,8 @@ chrome.contextMenus.create(notesContextMenuProperties);
 
 //Calback function when the user clicks the ContextMenu of the extension
 function notesContextMenuCallback(notesContextMenuInfo, notesContextMenuTab) {
-	notesUpdateMessageList("No notes to display\n");
+	//Clear the notes list when the context menu is clicked
+	notesUpdateMessageList("");
 }
 //End of Context menu handling
 
